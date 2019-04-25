@@ -1,0 +1,58 @@
+{% extends "layouts/layout.njk" %}
+{% set page_title = "Dashboard" %}
+
+{% block main %}
+<section class="hero-banner magic-ball">
+	<div class="container">
+		<div class="row align-items-center text-center text-md-left">
+			<div class="col-lg-10 col-xl-10 align-self-center mb-8 mb-lg-0">
+			</div>
+			<div class="col-lg-2 col-xl-2 align-self-center mb-8 mb-lg-0">
+				<button class="btn btn-success">Tambah Kelas</button>
+			</div>
+			<br>
+			<br>
+			<div class="col-lg-12 col-xl-12 align-self-center mb-2 mb-lg-0">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">No</th>
+							<th scope="col">Kelas</th>
+							<th scope="col">Waktu Awal</th>
+							<th scope="col">Waktu Akhir</th>
+							<th scope="col">Ruangan</th>
+							<th scope="col">Option</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Pemograman Berbasis Kerangka Kerja G</td>
+							<td>10.00</td>
+							<td>12.30</td>
+							<td>IF 107</td>
+							<td>
+								<button class="btn btn-warning">edit</button>
+								<button class="btn btn-danger">hapus</button>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Pemograman Berbasis Kerangka Kerja H</td>
+							<td>10.00</td>
+							<td>12.30</td>
+							<td>IF 107</td>
+							<td>
+								<button class="btn btn-warning">edit</button>
+								<button class="btn btn-danger">hapus</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+	<br>
+{% endblock %}
