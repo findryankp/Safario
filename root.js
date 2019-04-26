@@ -32,16 +32,10 @@ root.get('/helloworld', function(req, res){
    	res.end('Hello World\n');
 });
 
-//login
-root.get('/', function(request, response) {
-	response.render('auth/login.njk');
-});
-
-root.post('/login', function(request, response) {
-	module.exports.username1 = request.body.username;
-	module.exports.password1 = request.body.password;
-    var auth = require("./auth");
-});
+//----login
+var auth = require('./controller/auth.js');
+root.use('/auth', auth);
+//----endlogin
 
 //dashboard
 root.get('/dashboard', function(request, response) {
@@ -56,22 +50,6 @@ root.get('/dosen', function(request, response) {
 root.get('/createkelas', function(request, response) {
     response.render('dosen/createkelas.njk'); //akses halaman buat kelas
     //isine form
-});
-
-root.post('/tambahkelas', function(request, response) {
-    var matkul = request.body.nama;
-    var hari = request.body.hari;
-
-    db.connect(function(err) {
-    //gantien insert
-    let sql = "SELECT * FROM users where username ='"+username1+"' AND password='"+password1+"' limit 1";
-    db.query(sql, function (err, result) {
-        if (result != [])
-        {
-            console.log(result);
-        }
-    });
-});
 });
 
 module.exports = root;
