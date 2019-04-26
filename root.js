@@ -32,29 +32,19 @@ env.addGlobal('myFunc', function(obj, arg1) {
     return obj;
 });
 
-
-root.get('/helloworld', function(req, res){
-   	res.end('Hello World\n');
-});
-
 //----login
 var auth = require('./controller/auth.js');
 root.use('/auth', auth);
 //----endlogin
 
+//----dosen
+var auth = require('./controller/dosen.js');
+root.use('/dosen', auth);
+//----enddosen
+
 //dashboard
 root.get('/dashboard', function(request, response) {
 	response.sendFile(path.join(__dirname + '/login.html'));
-});
-
-//Dosen
-root.get('/dosen', function(request, response) {
-    response.render('dosen/index.njk');
-});
-
-root.get('/createkelas', function(request, response) {
-    response.render('dosen/createkelas.njk'); //akses halaman buat kelas
-    //isine form
 });
 
 module.exports = root;
