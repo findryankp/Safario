@@ -1,9 +1,14 @@
 var express = require('express');
-var root = express();
 var path = require('path');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var nunjucks  = require('nunjucks');
 
+var root = express();
+
+root.use(cookieParser());
+root.use(session({secret: "Shh, its a secret!"}));
 root.use(bodyParser.urlencoded({extended : true}));
 root.use(bodyParser.json());
 
