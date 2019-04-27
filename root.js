@@ -17,7 +17,8 @@ root.use(session({
 root.use(bodyParser.urlencoded({extended : true}));
 root.use(bodyParser.json());
 
-root.use(express.static(__dirname + '/assets'));
+// root.use(express.static(__dirname + '/assets'));
+root.use(express.static(path.join(__dirname, '/assets')));
 
 // Apply nunjucks and add custom filter and function (for example). 
 root.set('view engine', 'njk');
@@ -43,8 +44,8 @@ root.use('/auth', auth);
 //----endlogin
 
 //----dosen
-var auth = require('./controller/dosen.js');
-root.use('/dosen', auth);
+var dosen = require('./controller/dosen.js');
+root.use('/dosen', dosen);
 //----enddosen
 
 //dashboard
