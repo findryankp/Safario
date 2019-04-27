@@ -8,7 +8,12 @@ var nunjucks  = require('nunjucks');
 var root = express();
 
 root.use(cookieParser());
-root.use(session({secret: "Shh, its a secret!"}));
+root.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+
 root.use(bodyParser.urlencoded({extended : true}));
 root.use(bodyParser.json());
 
