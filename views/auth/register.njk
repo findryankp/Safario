@@ -1,5 +1,5 @@
 {% extends "layouts/layout.njk" %}
-{% set page_title = "Singin" %}
+{% set page_title = "Register" %}
 
 {% block main %}
 <!--================Search Package section Start =================-->
@@ -15,19 +15,32 @@
       </div>
       <div class="col-lg-6 col-xl-6 offset-xl-1">
         <div class="search-wrapper">
-          <h3>Masukan username dan password!</h3>
-          <form class="search-form" method="post" action="/auth/login">
+          <h3>Masukan Data Diri</h3>
+          <form class="search-form" method="post" action="/auth/registeruser">
             <div class="form-group">
               <input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
             </div>
             <div class="form-group">
               <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
             </div>
-            {% if flash %}
-              <button class="btn btn-danger">{{ flash }}</button>
-            {% endif %}
             <div class="form-group">
-              <button class="button border-0 mt-3" type="submit">Sign In</button>
+              <input class="form-control" type="password" id="repassword" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="form-group">
+              <select name="category" id="category">
+                <option value="disabled" disabled selected>Category</option>
+                <option value="1">Dosen</option>
+                <option value="2">Mahasiswa</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="angkatan" placeholder="Angkatan" required>
+            </div>
+            <div class="form-group">
+              <button class="button border-0 mt-3" type="submit">Register</button>
             </div>
           </form>
         </div>

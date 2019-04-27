@@ -1,4 +1,4 @@
-ar express = require('express');
+var express = require('express');
 var router = express.Router();
 
 router.get('/', function(request, response) {
@@ -9,3 +9,5 @@ router.get('/createkelas', function(request, response) {
     response.render('dosen/createkelas.njk'); //akses halaman buat kelas
     //isine form
 });
+
+module.exports = router;
