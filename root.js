@@ -17,8 +17,8 @@ root.use(session({
 root.use(bodyParser.urlencoded({extended : true}));
 root.use(bodyParser.json());
 
-// root.use(express.static(__dirname + '/assets'));
-root.use(express.static(path.join(__dirname, '/assets')));
+root.use(express.static(__dirname + '/assets'));
+
 
 // Apply nunjucks and add custom filter and function (for example). 
 root.set('view engine', 'njk');
