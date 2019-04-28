@@ -1,7 +1,7 @@
 var db = require("../db_config");
 var express = require('express');
 var router = express.Router();
-var var_dump = require('var_dump')
+// var var_dump = require('var_dump')
 
 router.get('/', function(request, response) {
 	var username = request.session.username;
