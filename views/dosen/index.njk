@@ -26,6 +26,19 @@
 					</thead>
 
 					<tbody>
+						{% for item in results %}
+						<tr>
+							<th scope="row">1</th>
+							<td>{{ item.username }}</td>
+							<td>{{ item.nama }}</td>
+							<td>{{ item.angkatan }}</td>
+							<td>{{ item.role }}</td>
+							<td>
+								<button class="btn btn-warning">edit</button>
+								<button class="btn btn-danger">hapus</button>
+							</td>
+						</tr>
+						{% endfor %}
 						<tr>
 							<th scope="row">1</th>
 							<td>Pemograman Berbasis Kerangka Kerja G</td>
@@ -54,5 +67,5 @@
 		</div>
 	</div>
 </section>
-	<br>
+<br>
 {% endblock %}

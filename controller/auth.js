@@ -29,7 +29,8 @@ router.post('/login', function(request, response) {
             if(request.session.role == 1){
                 response.redirect('/dosen');
             }else{
-                response.redirect('/mahasiswa');
+                // response.redirect('/mahasiswa');
+                response.render('dosen/index.njk',{results});
             }
 
             
