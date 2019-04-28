@@ -48,6 +48,11 @@ var dosen = require('./controller/dosen.js');
 root.use('/dosen', dosen);
 //----enddosen
 
+//----mahasiswa
+var mahasiswa = require('./controller/mahasiswa.js');
+root.use('/mahasiswa', mahasiswa);
+//----endmahasiswa
+
 //dashboard
 root.get('/dashboard', function(request, response) {
 	response.sendFile(path.join(__dirname + '/login.html'));
