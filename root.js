@@ -43,6 +43,11 @@ var auth = require('./controller/auth.js');
 root.use('/auth', auth);
 //----endlogin
 
+//----login
+var register = require('./controller/register.js');
+root.use('/register', register);
+//----endlogin
+
 //----dosen
 var dosen = require('./controller/dosen.js');
 root.use('/dosen', dosen);
