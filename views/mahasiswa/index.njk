@@ -30,7 +30,7 @@
 					</thead>
 
 					<tbody>
-						{% for matkul in matkuls %}
+						{% for matkul in results %}
 						<tr>
 							<th scope="row">1</th>
 							<td>{{matkul.nama}}</td>
@@ -38,7 +38,7 @@
 							<td>{{matkul.waktu_awal}}</td>
 							<td>{{matkul.waktu_akhir}}</td>
 							<td>{{matkul.ruang}}</td>
-							<button disabled class="btn btn-success">ABSEN</button>>
+							<td><button disabled class="btn btn-success">ABSEN</button></td>
 						</tr>
 						{% endfor %}
 					</tbody>

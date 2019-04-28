@@ -1,78 +1,131 @@
-/*
-SQLyog Ultimate v8.6 Beta2
-MySQL - 5.5.5-10.1.29-MariaDB : Database - safario
-*********************************************************************
-*/
-
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`safario` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `safario`;
-
-/*Table structure for table `absen` */
-
-DROP TABLE IF EXISTS `absen`;
-
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 28 Apr 2019 pada 10.41
+-- Versi server: 10.1.35-MariaDB
+-- Versi PHP: 7.2.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `safario`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `absen`
+--
+
 CREATE TABLE `absen` (
-  `id_absen` varchar(10) NOT NULL,
-  `id_user` varchar(10) NOT NULL,
-  `id_matkul` varchar(10) NOT NULL,
+  `id_absen` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_matkul` int(11) NOT NULL,
   `waktu_absen` datetime NOT NULL,
-  `status` char(1) NOT NULL,
-  PRIMARY KEY (`id_absen`),
-  KEY `FK_absen` (`id_user`),
-  KEY `FK_absen1` (`id_matkul`),
-  CONSTRAINT `FK_absen` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_absen1` FOREIGN KEY (`id_matkul`) REFERENCES `matkul` (`id_matkul`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `absen` */
-
-/*Table structure for table `matkul` */
-
-DROP TABLE IF EXISTS `matkul`;
-
+  `status` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `matkul`
+--
+
 CREATE TABLE `matkul` (
-  `id_matkul` varchar(10) NOT NULL,
-  `id_user` varchar(10) NOT NULL,
+  `id_matkul` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `ruang` varchar(10) NOT NULL,
   `hari` varchar(15) NOT NULL,
   `waktu_awal` time NOT NULL,
-  `waktu_akhir` time NOT NULL,
-  PRIMARY KEY (`id_matkul`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `matkul` */
-
-insert  into `matkul`(`id_matkul`,`id_user`,`nama`,`ruang`,`hari`,`waktu_awal`,`waktu_akhir`) values ('0001','0003','PBKK G','IF 107a','Senin','10:00:00','12:30:00'),('0002','0003','PBKK H','IF 103','Selasa','10:00:00','12:30:00');
-
-/*Table structure for table `user` */
-
-DROP TABLE IF EXISTS `user`;
-
+  `waktu_akhir` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `matkul`
+--
+
+INSERT INTO `matkul` (`id_matkul`, `id_user`, `nama`, `ruang`, `hari`, `waktu_awal`, `waktu_akhir`) VALUES
+(1, 3, 'PBKK G', 'IF 107a', 'Senin', '10:00:00', '12:30:00'),
+(2, 3, 'PBKK H', 'IF 103', 'Selasa', '10:00:00', '12:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
 CREATE TABLE `user` (
-  `id_user` varchar(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `nama` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `angkatan` varchar(10) DEFAULT NULL,
-  `role_user` char(1) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `user` */
-
-insert  into `user`(`id_user`,`username`,`nama`,`password`,`angkatan`,`role_user`) values ('0001','5115100035','Findryan Kurniawan Pradanawan','123456','2015','2'),('0002','5115100022','Huda Prasetia Nugraha','huda123','2015','2'),('0003','123456','Ridho Rahman H.','123456','','1'),('0004','5115100073','Fatimatus Zulfa','zulfa123','2015','2');
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+  `role_user` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `nama`, `password`, `angkatan`, `role_user`) VALUES
+(1, '5115100031', 'Findryan Kurniawan Pradanawan', '123456', '2015', '2'),
+(2, '5115100022', 'Huda Prasetia Nugraha', 'huda123', '2015', '2'),
+(3, '123456', 'Ridho Rahman H.', '123456', '', '1'),
+(4, '5115100073', 'Fatimatus Zulfa', 'zulfa123', '2015', '2'),
+(5, '5115100024', 'Yosa', '123', '2015', '2'),
+(7, '5115100035', 'Satnug', 'e10adc3949ba59abbe56e057f20f883e', '2015', '2');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `absen`
+--
+ALTER TABLE `absen`
+  ADD PRIMARY KEY (`id_absen`);
+
+--
+-- Indeks untuk tabel `matkul`
+--
+ALTER TABLE `matkul`
+  ADD PRIMARY KEY (`id_matkul`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `matkul`
+--
+ALTER TABLE `matkul`
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
