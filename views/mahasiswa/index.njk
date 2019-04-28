@@ -21,6 +21,7 @@
 						<tr>
 							<th scope="col">No</th>
 							<th scope="col">Kelas</th>
+							<th scope="col">Hari</th>
 							<th scope="col">Waktu Awal</th>
 							<th scope="col">Waktu Akhir</th>
 							<th scope="col">Ruangan</th>
@@ -29,7 +30,17 @@
 					</thead>
 
 					<tbody>
-						<td></td>
+						{% for matkul in matkuls %}
+						<tr>
+							<th scope="row">1</th>
+							<td>{{matkul.nama}}</td>
+							<td>{{matkul.hari}}</td>
+							<td>{{matkul.waktu_awal}}</td>
+							<td>{{matkul.waktu_akhir}}</td>
+							<td>{{matkul.ruang}}</td>
+							<button disabled class="btn btn-success">ABSEN</button>>
+						</tr>
+						{% endfor %}
 					</tbody>
 				</table>
 			</div>

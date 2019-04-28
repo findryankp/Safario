@@ -17,11 +17,14 @@ router.post('/absen', function(request, response) {
 	});
 });
 
-router.post('/kelasmahasiswa',function(request,response){
-	let sql = "SELECT * FROM matkul";
+router.post('/',function(request,response){
+	// var id = request.session.id_user;
+
+	// let sql = "SELECT * FROM matkul where id_user = '"+id+"'";
+	let sql = "SELECT * FROM matkul limit 1";
 	let query = db.query(sql, (err, results) => {
 		if(err) throw err;
-		response.render('mahasiswa/index.njk',{results : results});
+		response.render('mahasiswa/index.njk',{matkuls});
 	});
 });
 
