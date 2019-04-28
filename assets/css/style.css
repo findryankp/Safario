@@ -54,6 +54,14 @@ h6 {
   line-height: 1.25;
 }
 
+table {
+    counter-reset: tableCount;     
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+
 h1,
 .h1 {
   font-size: 50px;
