@@ -27,7 +27,9 @@ router.post('/login', function(request, response) {
             request.session.username = results[0].username;
             request.session.nama = results[0].nama;
             request.session.angkatan = results[0].angkatan;
-            request.session.role = results[0].role;
+            request.session.role = results[0].role_user;
+
+            console.log('role'+request.session.role);
 
             if(request.session.role == 1){
                 response.redirect('/dosen');

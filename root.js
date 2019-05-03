@@ -51,6 +51,16 @@ root.use('/register', register);
 //----dosen
 var dosen = require('./controller/dosen.js');
 root.use('/dosen', dosen);
+
+//createkelas
+root.get('/createkelas', function(request, response) {
+    response.sendFile(path.join(__dirname + '/createkelas.njx'));
+});
+
+//addkelas
+root.get('/addkelas', function(request, response) {
+    response.sendFile(path.join(__dirname + '/createkelas.njx'));
+});
 //----enddosen
 
 //----mahasiswa
