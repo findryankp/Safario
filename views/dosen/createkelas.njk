@@ -23,7 +23,10 @@
 							<label for="username">Dosen Pengajar</label>
 							<select name="pengajar" id="pengajar">
 								<option value="disabled" disabled selected>--Pengajar--</option>
-								<option value="3">Ridho Rahman</option>
+
+								{% for dosen in results %}
+								<option value="{{dosen.id_user}}">{{dosen.nama}}</option>
+								{% endfor %}
 							</select>
 						</div>
 						<div class="form-group">
