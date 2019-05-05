@@ -8,7 +8,7 @@
 			<div class="col-lg-10 col-xl-10 align-self-center mb-8 mb-lg-0">
 			</div>
 			<div class="col-lg-2 col-xl-2 align-self-center mb-8 mb-lg-0">
-				<button class="btn btn-success">Tambah Kelas</button>
+				<a href="/dosen/createkelas" class="btn btn-success">Tambah Kelas</a>
 			</div>
 			<br>
 			<br>
@@ -29,38 +29,16 @@
 						{% for item in results %}
 						<tr>
 							<th scope="row">1</th>
-							<td>{{ item.username }}</td>
 							<td>{{ item.nama }}</td>
-							<td>{{ item.angkatan }}</td>
-							<td>{{ item.role }}</td>
+							<td>{{ item.waktu_awal }}</td>
+							<td>{{ item.waktu_akhir}}</td>
+							<td>{{ item.ruang }}</td>
 							<td>
 								<button class="btn btn-warning">edit</button>
 								<button class="btn btn-danger">hapus</button>
 							</td>
 						</tr>
 						{% endfor %}
-						<tr>
-							<th scope="row">1</th>
-							<td>Pemograman Berbasis Kerangka Kerja G</td>
-							<td>10.00</td>
-							<td>12.30</td>
-							<td>IF 107</td>
-							<td>
-								<button class="btn btn-warning">edit</button>
-								<button class="btn btn-danger">hapus</button>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Pemograman Berbasis Kerangka Kerja H</td>
-							<td>10.00</td>
-							<td>12.30</td>
-							<td>IF 107</td>
-							<td>
-								<button class="btn btn-warning">edit</button>
-								<button class="btn btn-danger">hapus</button>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
